@@ -7,11 +7,11 @@
 
 ## 2. Modelo de Markov (`markov/core.py`) con TDD
 
-- [ ] 2.1 Escribir en `tests/test_core.py` las pruebas de validación de la matriz y del vector (escenarios de la spec)
+- [x] 2.1 Escribir en `tests/test_core.py` las pruebas de validación de la matriz y del vector (escenarios de la spec)
 - [ ] 2.2 Implementar `MatrizInvalidaError`, `validar_matriz` y `validar_vector` hasta que pasen las pruebas
-- [ ] 2.3 Escribir las pruebas de `predecir`, `predecir_pasos` y `evolucion` (1, 3 y 10 pasos con los valores de la spec)
+- [x] 2.3 Escribir las pruebas de `predecir`, `predecir_pasos` y `evolucion` (1, 3 y 10 pasos con los valores de la spec)
 - [ ] 2.4 Implementar `predecir`, `predecir_pasos` y `evolucion` hasta que pasen las pruebas
-- [ ] 2.5 Escribir las pruebas de `distribucion_estacionaria` (valor esperado y π · P = π)
+- [x] 2.5 Escribir las pruebas de `distribucion_estacionaria` (valor esperado y π · P = π)
 - [ ] 2.6 Implementar `distribucion_estacionaria` hasta que pasen las pruebas
 
 ## 3. Gestión de escenarios
