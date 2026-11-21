@@ -123,7 +123,7 @@ El desarrollo sigue un flujo de especificación por diseño (SDD):
    aprobadas y mantiene las especificaciones como guía.
 6. **archive**: al terminar y revisar el cambio, archiva la propuesta y sus
    especificaciones en OpenSpec.
-   
+
 > El cambio `prediccion-ocupacion-markov` se archivó al cerrar la sección 5
 > (commit `f0750db`); sus specs quedaron en `openspec/specs/`.
 
@@ -131,13 +131,5 @@ En la sección 2 se aplicó **TDD**: primero se escribieron las pruebas del núc
 de Markov y se confirmó el estado rojo porque la implementación aún no existía;
 después se implementaron las funciones hasta que las pruebas pasaron (verde).
 
-## Capturas
-
-Guarda las imágenes en `docs/capturas/` y sustituye estos espacios por los
-archivos correspondientes:
-
-<!-- Agregar las capturas en docs/capturas/ y actualizar estas referencias. -->
-
-![Lista de escenarios](docs/capturas/lista-escenarios.png)
-
-![Detalle y resultados](docs/capturas/detalle-resultados.png)
+**Autores:** Daniel Esteban López Castiblanco, …
+**Curso:** … · Actividad final de desarrollo con OpenSpec
