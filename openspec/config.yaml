@@ -1,34 +1,25 @@
 schema: spec-driven
-githubCopilot:
-  cloudAgent: true
 
-# Project context (optional)
-# Add only constraints that should guide OpenSpec artifacts and workflows.
-# Include constraints an agent cannot infer by reading the code.
-# Keep general project documentation and discoverable codebase facts out.
-# Example:
-#   context: |
-#     Designs and tasks must cover Windows, macOS, and Linux
-#     Write all artifacts in Spanish
+context: |
+  Proyecto académico (Ingeniería de Software): aplicación web que usa
+  cadenas de Markov para predecir la ocupación de espacios académicos
+  (salones, laboratorios) por franjas horarias.
+  Estados por defecto: Libre, Medio, Lleno (mínimo 3 estados).
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always state what is out of scope
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
+  Stack:
+  - Python 3 + Django (monolito con plantillas)
+  - NumPy para el cálculo matricial
+  - Chart.js para las gráficas
+  - SQLite como base de datos
+  - pytest + pytest-django para pruebas automatizadas
 
-# Per-operation guidance (optional)
-# Add advisory guidance for how apply and archive work should be conducted.
-# This is separate from artifact rules above.
-# Example:
-#   operations:
-#     apply:
-#       guidance:
-#         - Keep test summaries concise
-#     archive:
-#       guidance:
-#         - Summarize the archive outcome before finishing
+  Convenciones:
+  - Código, nombres de variables y comentarios en español
+  - La lógica de Markov va en un módulo puro (markov/core.py), sin depender de Django
+  - Commits con Conventional Commits (feat, fix, test, docs, chore)
+
+rules:
+  specs:
+    - Cada requisito debe tener al menos un escenario Given/When/Then
+  tasks:
+    - Cada tarea de lógica debe incluir su prueba automatizada
