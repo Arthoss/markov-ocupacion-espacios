@@ -25,12 +25,12 @@
 
 ## 4. Visualización de resultados
 
-- [ ] 4.1 Implementar la vista de detalle con el selector de estado inicial (`?estado_inicial=`)
-- [ ] 4.2 Mostrar la matriz de transición y la tabla de resultados para 1, 3, 5 y 10 pasos en porcentaje
-- [ ] 4.3 Pasar los datos a la plantilla con `json_script` y dibujar la gráfica de líneas (pasos 0 a 10) con Chart.js
-- [ ] 4.4 Dibujar la gráfica de barras agrupadas para los pasos 1, 3, 5 y 10
-- [ ] 4.5 Mostrar la distribución estacionaria y resaltar el estado más probable a largo plazo
-- [ ] 4.6 Escribir las pruebas de la página de resultados (tabla, datos de las gráficas, estado más probable)
+- [x] 4.1 Implementar la vista de detalle con el selector de estado inicial (`?estado_inicial=`)
+- [x] 4.2 Mostrar la matriz de transición y la tabla de resultados para 1, 3, 5 y 10 pasos en porcentaje
+- [x] 4.3 Pasar los datos a la plantilla con `json_script` y dibujar la gráfica de líneas (pasos 0 a 10) con Chart.js
+- [x] 4.4 Dibujar la gráfica de barras agrupadas para los pasos 1, 3, 5 y 10
+- [x] 4.5 Mostrar la distribución estacionaria y resaltar el estado más probable a largo plazo
+- [x] 4.6 Escribir las pruebas de la página de resultados (tabla, datos de las gráficas, estado más probable)
 
 ## 5. Cierre
 

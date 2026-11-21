@@ -5,25 +5,140 @@
 
 {% block content %}
     <h2>{{ escenario.nombre }}</h2>
-    <h3>Estados</h3>
-    <ul>
-        {% for estado in escenario.estados %}
-            <li>{{ estado }}</li>
-        {% endfor %}
-    </ul>
+
+    <form method="get">
+        <label for="estado-inicial">Estado inicial</label>
+        <select id="estado-inicial" name="estado_inicial">
+            {% for estado in escenario.estados %}
+                <option value="{{ forloop.counter0 }}"
+                        {% if forloop.counter0 == indice_estado_inicial %}selected{% endif %}>
+                    {{ estado }}
+                </option>
+            {% endfor %}
+        </select>
+        <button type="submit">Calcular</button>
+    </form>
+
+    {% if aviso_estado_invalido %}
+        <p role="alert">El estado inicial indicado no es válido. Se seleccionó el primer estado.</p>
+    {% endif %}
+
     <h3>Matriz de transición</h3>
     <table>
+        <thead>
+            <tr>
+                <th scope="col">Estado actual \ Siguiente</th>
+                {% for estado in escenario.estados %}
+                    <th scope="col">{{ estado }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
         <tbody>
-            {% for fila in escenario.matriz %}
+            {% for fila in filas_matriz %}
                 <tr>
-                    {% for valor in fila %}
+                    <th scope="row">{{ fila.estado }}</th>
+                    {% for valor in fila.valores %}
                         <td>{{ valor|unlocalize }}</td>
                     {% endfor %}
                 </tr>
             {% endfor %}
         </tbody>
     </table>
+
+    <h3>Predicciones</h3>
+    <table>
+        <thead>
+            <tr>
+                <th scope="col">Pasos</th>
+                {% for estado in escenario.estados %}
+                    <th scope="col">{{ estado }}</th>
+                {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for resultado in resultados %}
+                <tr>
+                    <th scope="row">{{ resultado.paso }}</th>
+                    {% for valor in resultado.valores %}
+                        <td>{{ valor }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h3>Distribución estacionaria</h3>
+    <ul>
+        {% for resultado in resultados_estacionarios %}
+            <li>
+                {% if resultado.es_mas_probable %}
+                    <strong>{{ resultado.estado }}: {{ resultado.valor }}</strong>
+                {% else %}
+                    {{ resultado.estado }}: {{ resultado.valor }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+    <p>{{ interpretacion_estacionaria }}</p>
+
+    <h3>Evolución de la ocupación</h3>
+    <canvas id="grafica-evolucion" aria-label="Probabilidad por estado desde el paso 0 hasta el 10"></canvas>
+    <h3>Comparación por pasos</h3>
+    <canvas id="grafica-predicciones" aria-label="Comparación de predicciones por estado"></canvas>
+
+    {{ datos_estados_json|json_script:"datos-estados" }}
+    {{ datos_evolucion_json|json_script:"datos-evolucion" }}
+    {{ datos_predicciones_json|json_script:"datos-predicciones" }}
+
     <p><a href="{% url 'ocupacion:editar' escenario.pk %}">Editar</a></p>
     <p><a href="{% url 'ocupacion:eliminar' escenario.pk %}">Eliminar</a></p>
     <p><a href="{% url 'ocupacion:lista' %}">Volver a la lista</a></p>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const estados = JSON.parse(document.getElementById("datos-estados").textContent);
+        const evolucion = JSON.parse(document.getElementById("datos-evolucion").textContent);
+        const predicciones = JSON.parse(document.getElementById("datos-predicciones").textContent);
+        const colores = ["#2563eb", "#dc2626", "#16a34a", "#9333ea", "#ea580c"];
+
+        new Chart(document.getElementById("grafica-evolucion"), {
+            type: "line",
+            data: {
+                labels: evolucion.map((_, paso) => paso),
+                datasets: estados.map((estado, indice) => ({
+                    label: estado,
+                    data: evolucion.map(distribucion => distribucion[indice] * 100),
+                    borderColor: colores[indice % colores.length],
+                    fill: false
+                }))
+            },
+            options: {
+                scales: {
+                    x: { title: { display: true, text: "Pasos" } },
+                    y: { title: { display: true, text: "Probabilidad (%)" } }
+                }
+            }
+        });
+
+        const pasos = Object.keys(predicciones);
+        new Chart(document.getElementById("grafica-predicciones"), {
+            type: "bar",
+            data: {
+                labels: pasos,
+                datasets: estados.map((estado, indice) => ({
+                    label: estado,
+                    data: pasos.map(paso => predicciones[paso][indice] * 100),
+                    backgroundColor: colores[indice % colores.length]
+                }))
+            },
+            options: {
+                scales: {
+                    x: { title: { display: true, text: "Pasos" } },
+                    y: { title: { display: true, text: "Probabilidad (%)" } }
+                }
+            }
+        });
+    </script>
 {% endblock %}
