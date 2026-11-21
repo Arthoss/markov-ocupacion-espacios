@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load l10n %}
+
+{% block title %}{{ escenario.nombre }}{% endblock %}
+
+{% block content %}
+    <h2>{{ escenario.nombre }}</h2>
+    <h3>Estados</h3>
+    <ul>
+        {% for estado in escenario.estados %}
+            <li>{{ estado }}</li>
+        {% endfor %}
+    </ul>
+    <h3>Matriz de transición</h3>
+    <table>
+        <tbody>
+            {% for fila in escenario.matriz %}
+                <tr>
+                    {% for valor in fila %}
+                        <td>{{ valor|unlocalize }}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p><a href="{% url 'ocupacion:editar' escenario.pk %}">Editar</a></p>
+    <p><a href="{% url 'ocupacion:eliminar' escenario.pk %}">Eliminar</a></p>
+    <p><a href="{% url 'ocupacion:lista' %}">Volver a la lista</a></p>
+{% endblock %}

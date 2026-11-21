@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}{% if object %}Editar{% else %}Crear{% endif %} escenario{% endblock %}
+
+{% block content %}
+    <h2>{% if object %}Editar{% else %}Crear{% endif %} escenario</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Guardar</button>
+    </form>
+    <p><a href="{% url 'ocupacion:lista' %}">Volver a la lista</a></p>
+{% endblock %}

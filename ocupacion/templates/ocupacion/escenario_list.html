@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Escenarios{% endblock %}
+
+{% block content %}
+    <h2>Escenarios</h2>
+    <p><a href="{% url 'ocupacion:crear' %}">Crear escenario</a></p>
+    {% if escenarios %}
+        <ul>
+            {% for escenario in escenarios %}
+                <li>
+                    {{ escenario.nombre }} ({{ escenario.estados|length }} estados)
+                    <a href="{% url 'ocupacion:detalle' escenario.pk %}">Ver</a>
+                    <a href="{% url 'ocupacion:editar' escenario.pk %}">Editar</a>
+                    <a href="{% url 'ocupacion:eliminar' escenario.pk %}">Eliminar</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No hay escenarios todavía.</p>
+    {% endif %}
+{% endblock %}

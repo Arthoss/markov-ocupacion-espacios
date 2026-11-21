@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Eliminar {{ escenario.nombre }}{% endblock %}
+
+{% block content %}
+    <h2>Eliminar escenario</h2>
+    <p>¿Confirmas que deseas eliminar "{{ escenario.nombre }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Confirmar eliminación</button>
+    </form>
+    <p><a href="{% url 'ocupacion:detalle' escenario.pk %}">Cancelar</a></p>
+{% endblock %}
