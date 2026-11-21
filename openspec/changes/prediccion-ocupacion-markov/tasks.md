@@ -1,9 +1,9 @@
 ## 1. Base del proyecto
 
-- [ ] 1.1 Crear el proyecto Django `config` en la raíz y la app `ocupacion`
-- [ ] 1.2 Configurar `settings.py`: registrar `ocupacion`, `LANGUAGE_CODE = "es-co"`, `TIME_ZONE = "America/Bogota"`
-- [ ] 1.3 Crear `pytest.ini` con `DJANGO_SETTINGS_MODULE = config.settings` y la carpeta `tests/`
-- [ ] 1.4 Crear una prueba de humo que verifique que pytest y Django funcionan
+- [x] 1.1 Crear el proyecto Django `config` en la raíz y la app `ocupacion`
+- [x] 1.2 Configurar `settings.py`: registrar `ocupacion`, `LANGUAGE_CODE = "es-co"`, `TIME_ZONE = "America/Bogota"`
+- [x] 1.3 Crear `pytest.ini` con `DJANGO_SETTINGS_MODULE = config.settings` y la carpeta `tests/`
+- [x] 1.4 Crear una prueba de humo que verifique que pytest y Django funcionan
 
 ## 2. Modelo de Markov (`markov/core.py`) con TDD
 
