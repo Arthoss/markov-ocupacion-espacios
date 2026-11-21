@@ -34,6 +34,6 @@
 
 ## 5. Cierre
 
-- [ ] 5.1 Aplicar estilos básicos y una plantilla base con navegación
-- [ ] 5.2 Ejecutar toda la suite de pruebas y corregir los fallos
-- [ ] 5.3 Actualizar `requirements.txt` y escribir el `README.md` (instalación, uso, pruebas, proceso SDD)
+- [x] 5.1 Aplicar estilos básicos y una plantilla base con navegación
+- [x] 5.2 Ejecutar toda la suite de pruebas y corregir los fallos
+- [x] 5.3 Actualizar `requirements.txt` y escribir el `README.md` (instalación, uso, pruebas, proceso SDD)

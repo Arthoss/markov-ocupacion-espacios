@@ -180,7 +180,10 @@ def test_distribucion_estacionaria_resalta_medio(client):
         fila["estado"] == "Medio" and fila["es_mas_probable"]
         for fila in resultados
     )
-    assert "<strong>Medio: 38.89 %</strong>" in respuesta.content.decode()
+    assert (
+        '<strong class="estado-destacado">Medio: 38.89 %</strong>'
+        in respuesta.content.decode()
+    )
     assert "A largo plazo, el espacio estará Medio el 38.89 % del tiempo" in (
         respuesta.content.decode()
     )

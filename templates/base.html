@@ -3,15 +3,26 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{% block title %}Ocupación de espacios{% endblock %}</title>
+    <title>{% block title %}Markov · Ocupación de espacios{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/estilos.css' %}">
 </head>
 <body>
-    <header>
-        <h1><a href="{% url 'ocupacion:lista' %}">Ocupación de espacios</a></h1>
+    <header class="barra-superior">
+        <nav class="navegacion contenedor" aria-label="Navegación principal">
+            <a class="marca" href="{% url 'ocupacion:lista' %}">Markov · Ocupación de espacios</a>
+            <div class="enlaces-navegacion">
+                <a href="{% url 'ocupacion:lista' %}">Inicio</a>
+                <a class="boton boton-nav" href="{% url 'ocupacion:crear' %}">Nuevo escenario</a>
+            </div>
+        </nav>
     </header>
-    <main>
+    <main class="contenedor contenido">
         {% block content %}{% endblock %}
     </main>
     {% block scripts %}{% endblock %}
+    <footer class="pie-pagina">
+        <div class="contenedor">Predicción de ocupación con cadenas de Markov</div>
+    </footer>
 </body>
 </html>

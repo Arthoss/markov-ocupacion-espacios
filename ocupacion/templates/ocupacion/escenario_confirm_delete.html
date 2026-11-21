@@ -5,9 +5,9 @@
 {% block content %}
     <h2>Eliminar escenario</h2>
     <p>¿Confirmas que deseas eliminar "{{ escenario.nombre }}"?</p>
-    <form method="post">
+    <form method="post" class="tarjeta formulario">
         {% csrf_token %}
-        <button type="submit">Confirmar eliminación</button>
+        <button class="boton boton-peligro" type="submit">Confirmar eliminación</button>
     </form>
     <p><a href="{% url 'ocupacion:detalle' escenario.pk %}">Cancelar</a></p>
 {% endblock %}

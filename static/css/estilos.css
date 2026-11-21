@@ -1,0 +1,299 @@
+:root {
+    color-scheme: light;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #172033;
+    background: #f4f7fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 320px;
+    min-height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+a {
+    color: #1d4ed8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.contenedor {
+    width: min(100% - 2rem, 1080px);
+    margin-inline: auto;
+}
+
+.barra-superior {
+    color: #fff;
+    background: #172554;
+    box-shadow: 0 2px 10px #17255420;
+}
+
+.navegacion,
+.enlaces-navegacion,
+.acciones {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.navegacion {
+    min-height: 4.25rem;
+    justify-content: space-between;
+}
+
+.marca {
+    color: inherit;
+    font-size: 1.1rem;
+    font-weight: 700;
+}
+
+.enlaces-navegacion > a:not(.boton) {
+    color: #e0e7ff;
+}
+
+.contenido {
+    flex: 1;
+    padding-block: 2rem 3rem;
+}
+
+h2 {
+    margin-top: 0;
+    color: #172554;
+}
+
+h3 {
+    margin-top: 2rem;
+    color: #243b67;
+}
+
+.boton,
+button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 2.5rem;
+    padding: 0.55rem 1rem;
+    border: 0;
+    border-radius: 0.5rem;
+    color: #fff;
+    background: #2563eb;
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+}
+
+.boton:hover,
+button:hover {
+    color: #fff;
+    background: #1d4ed8;
+    text-decoration: none;
+}
+
+.boton-nav {
+    color: #fff;
+    background: #3b82f6;
+}
+
+.boton-peligro {
+    background: #b91c1c;
+}
+
+.boton-peligro:hover {
+    background: #991b1b;
+}
+
+.lista-tarjetas {
+    display: grid;
+    gap: 1rem;
+    padding: 0;
+    list-style: none;
+}
+
+.tarjeta {
+    border: 1px solid #dce4ef;
+    border-radius: 0.8rem;
+    background: #fff;
+    box-shadow: 0 4px 14px #1725540a;
+}
+
+.lista-tarjetas .tarjeta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 1.1rem 1.25rem;
+}
+
+.texto-secundario {
+    display: block;
+    margin-top: 0.25rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.acciones {
+    flex-wrap: wrap;
+}
+
+.formulario {
+    max-width: 700px;
+    padding: 1.25rem;
+}
+
+.formulario p {
+    margin: 0 0 1.2rem;
+}
+
+.formulario label,
+.selector-estado label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 650;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 0.65rem 0.75rem;
+    border: 1px solid #bdc9d9;
+    border-radius: 0.45rem;
+    background: #fff;
+    color: inherit;
+    font: inherit;
+}
+
+textarea {
+    min-height: 8rem;
+    resize: vertical;
+}
+
+.helptext {
+    display: block;
+    margin-top: 0.35rem;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.errorlist {
+    padding: 0.75rem 1rem;
+    border: 1px solid #fecaca;
+    border-radius: 0.5rem;
+    color: #991b1b;
+    background: #fef2f2;
+    list-style-position: inside;
+}
+
+.mensaje {
+    padding: 0.9rem 1rem;
+    border: 1px solid #bfdbfe;
+    border-radius: 0.5rem;
+    color: #1e3a8a;
+    background: #eff6ff;
+}
+
+.mensaje-error {
+    border-color: #fca5a5;
+    color: #991b1b;
+    background: #fef2f2;
+}
+
+.selector-estado {
+    display: flex;
+    align-items: end;
+    gap: 0.75rem;
+    max-width: 34rem;
+    margin-block: 1.25rem;
+}
+
+.selector-estado select {
+    flex: 1;
+}
+
+.selector-estado label {
+    margin: 0;
+}
+
+.tabla-contenedor {
+    overflow-x: auto;
+    border: 1px solid #dce4ef;
+    border-radius: 0.7rem;
+    background: #fff;
+}
+
+.tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla th,
+.tabla td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e5eaf1;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tabla thead {
+    color: #334155;
+    background: #eef3f9;
+}
+
+.tabla tbody tr:last-child th,
+.tabla tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.estado-destacado {
+    display: inline-block;
+    padding: 0.3rem 0.55rem;
+    border-radius: 0.4rem;
+    color: #166534;
+    background: #dcfce7;
+}
+
+.grafica {
+    padding: 1rem;
+}
+
+.grafica canvas {
+    max-height: 24rem;
+}
+
+.pie-pagina {
+    padding-block: 1.25rem;
+    color: #cbd5e1;
+    background: #172554;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+    .navegacion {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        gap: 0.5rem;
+        padding-block: 0.8rem;
+    }
+
+    .enlaces-navegacion {
+        flex-wrap: wrap;
+    }
+
+    .lista-tarjetas .tarjeta,
+    .selector-estado {
+        align-items: stretch;
+        flex-direction: column;
+    }
+}
