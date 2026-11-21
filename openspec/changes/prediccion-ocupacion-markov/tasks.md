@@ -16,10 +16,10 @@
 
 ## 3. Gestión de escenarios
 
-- [ ] 3.1 Crear el modelo `Escenario` con `clean()` que use `markov.core` y su migración
-- [ ] 3.2 Crear la migración de datos con el escenario "Salón 101"
-- [ ] 3.3 Crear `EscenarioForm` (estados separados por comas, matriz una fila por línea) con sus validaciones
-- [ ] 3.4 Escribir `tests/test_forms.py` con los escenarios de la spec (nombres repetidos, matriz inválida)
+- [x] 3.1 Crear el modelo `Escenario` con `clean()` que use `markov.core` y su migración
+- [x] 3.2 Crear la migración de datos con el escenario "Salón 101"
+- [x] 3.3 Crear `EscenarioForm` (estados separados por comas, matriz una fila por línea) con sus validaciones
+- [x] 3.4 Escribir `tests/test_forms.py` con los escenarios de la spec (nombres repetidos, matriz inválida)
 - [ ] 3.5 Implementar las vistas, rutas y plantillas de listar, crear, editar y eliminar
 - [ ] 3.6 Escribir en `tests/test_views.py` las pruebas del CRUD y del escenario precargado
 
